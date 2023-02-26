@@ -15,8 +15,7 @@ export const getStaticProps = async () => {
 
 export default function Home( { data }: { data: SanityDocument[] } ) {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      Populate me with Sanity Content
+    <div className="min-h-[calc(100vh-56px)]">
 
     </div>
   )
