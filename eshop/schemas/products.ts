@@ -4,14 +4,18 @@ export default {
     type: 'document',
     fields: [
         {
-            title: 'Title',
-            name: 'title',
-            type: 'string'
-        },
-        {
             title: 'Name',
             name: 'name',
             type: 'string'
+        },
+        {
+            title: 'Image',
+            name: 'image',
+            type: 'array',
+            of: [{ type: 'image'}],
+            options: {
+                hotspot: true,
+            }
         },
         {
             title: 'Slug',
@@ -20,6 +24,26 @@ export default {
             options: {
                 source: 'name'
             }
+        },
+        {
+            title: 'Price',
+            name: 'price',
+            type: 'number'
+        },
+        {
+            title: 'Desc',
+            name: 'desc',
+            type: 'string'
+        },
+        {
+            title: 'Sale',
+            name: 'sale',
+            type: 'boolean'
+        },
+        {
+            title: 'Discount',
+            name: 'discount',
+            type: 'number'
         }
     ]
 }
