@@ -6,11 +6,14 @@ import { SanityDocument } from "@sanity/client";
 import Head from "next/head";
 import urlFor from "@/lib/urlFor";
 import { TiShoppingCart } from 'react-icons/ti'
+// Context
+import { useCartContext } from "@/context/CartContext";
 
 // const builder = imageUrlBuilder(client);
 
 export default function Product({ product }: { product: SanityDocument }) {
-  console.log(product)
+  // console.log(product)
+  const { qty } = useCartContext()
   return (
     <>
       <Head>
@@ -32,7 +35,7 @@ export default function Product({ product }: { product: SanityDocument }) {
           <p className="text-sm text-gray-400 mt-4 w-1/2">{product.desc}</p>
           <p className="text-green-400 font-bold text-xl mt-4">In stock</p>
           <div className="max-w-[450px]">
-            <p className="border-2 w-[55px] px-2 flex justify-center items-center mt-4">- 0 +</p>
+            <p className="border-2 w-[55px] px-2 flex justify-center items-center mt-4">- {qty} +</p>
             <button 
             type='button'
             className="flex justify-center align-center px-4 py-2 bg-gray-200 w-full mt-8">
