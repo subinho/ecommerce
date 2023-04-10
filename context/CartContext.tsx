@@ -13,6 +13,7 @@ type StateType = {
     showCart: boolean;
     setShowCart: React.Dispatch<React.SetStateAction<boolean>>; 
     displayCart(): void;
+    removeFromCart(product: ProductInfo): void;
     
  }
 
@@ -46,13 +47,26 @@ const CartContext = ({children} : any) => {
             })
 
             setCartItems(newCartItems)
-            // localStorage.setItem('cartItems', JSON.stringify(cartItems))
 
         }
         console.log(cartItems)
     }
 
     const displayCart = () => setShowCart(prev => !prev)
+
+    const removeFromCart = (product: ProductInfo) => {
+        if(cartItems.find((item) => item._id === product._id)?.quantity === 1) {
+            setCartItems(prevItems => (prevItems.filter(item => item._id !== product._id)))
+        } else {
+            const newCartItems =  cartItems.map((item) => {
+                if(item._id === product._id) {
+                    return  {...item, quantity: item?.quantity! - 1}
+                } else return item
+            })
+
+            setCartItems(newCartItems)
+        }
+    }
     
 
   return (
@@ -67,6 +81,7 @@ const CartContext = ({children} : any) => {
         showCart,
         setShowCart,
         displayCart,
+        removeFromCart
     }}>
         {children}
     </Context.Provider>

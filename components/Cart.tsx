@@ -4,7 +4,7 @@ import { useCartContext } from '@/context/CartContext'
 
 const Cart = () => {
     // let cart: Product[] = []
-    let { cartItems, setCartItems, showCart } = useCartContext()
+    let { cartItems, setCartItems, showCart, removeFromCart } = useCartContext()
     // useEffect(() => {
     //     // cartItems = JSON.parse(localStorage.getItem('cartItems') || '')
     //     setCartItems(JSON.parse(localStorage.getItem('cartItems') || ''))
@@ -21,7 +21,9 @@ const Cart = () => {
                      <div className='flex justify-between'>
                        <p>x</p>
                        <div className='flex'>
-                         <button>-</button>
+                         <button
+                         onClick={() => removeFromCart(item)}
+                         >-</button>
                          <p>{item.quantity}</p>
                          <button>+</button>
                        </div>
