@@ -14,6 +14,7 @@ type StateType = {
     setShowCart: React.Dispatch<React.SetStateAction<boolean>>; 
     displayCart(): void;
     removeFromCart(product: ProductInfo): void;
+    deleteFromCart(product: ProductInfo): void;
     
  }
 
@@ -67,6 +68,10 @@ const CartContext = ({children} : any) => {
             setCartItems(newCartItems)
         }
     }
+
+    const deleteFromCart = (product: ProductInfo) => {
+        cartItems.find((item) => item._id === product._id) && setCartItems(prevItems => (prevItems.filter(item => item._id !== product._id)))
+    }
     
 
   return (
@@ -81,7 +86,8 @@ const CartContext = ({children} : any) => {
         showCart,
         setShowCart,
         displayCart,
-        removeFromCart
+        removeFromCart,
+        deleteFromCart
     }}>
         {children}
     </Context.Provider>

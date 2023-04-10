@@ -4,7 +4,7 @@ import { useCartContext } from '@/context/CartContext'
 
 const Cart = () => {
     // let cart: Product[] = []
-    let { cartItems, setCartItems, showCart, removeFromCart } = useCartContext()
+    let { cartItems, setCartItems, showCart, removeFromCart, deleteFromCart } = useCartContext()
     // useEffect(() => {
     //     // cartItems = JSON.parse(localStorage.getItem('cartItems') || '')
     //     setCartItems(JSON.parse(localStorage.getItem('cartItems') || ''))
@@ -19,7 +19,9 @@ const Cart = () => {
                     <div key={item._id} className='p-3 border-black border-[1px] rounded-sm'>
                       <h2 className='border-b-2 border-black'>{item.name}</h2>
                      <div className='flex justify-between'>
-                       <p>x</p>
+                       <p
+                       onClick={() => deleteFromCart(item)}
+                       >x</p>
                        <div className='flex'>
                          <button
                          onClick={() => removeFromCart(item)}
