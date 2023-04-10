@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { Navbar } from './'
+import { Navbar, Cart } from './'
 
 const Layout = ({children} : any) => {
   return (
@@ -10,6 +10,7 @@ const Layout = ({children} : any) => {
         </Head>
         <header>
           <Navbar />
+          <Cart />
         </header>
         <main className='px-4 max-w-[1440px] mx-auto'>
             {children}
