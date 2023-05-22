@@ -3,6 +3,7 @@ import { GetStaticPaths, GetStaticProps } from "next";
 import { groq } from "next-sanity";
 import { client } from "../../lib/sanity.client";
 import { Product } from "../../components";
+import { ProductInfo } from '../../interfaces/global_interfaces'
 
 const query = groq`*[_type == "products" && slug.current == $slug][0]{
   _id,
@@ -12,7 +13,7 @@ const query = groq`*[_type == "products" && slug.current == $slug][0]{
   price,
   desc,
   sale,
-  discount
+  discount,
 }`;
 
 // Prepare Next.js to know which routes already exist
@@ -38,6 +39,6 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-export default function Page({ data }: { data: { product: SanityDocument } }) {
+export default function Page({ data }: { data: { product: ProductInfo} }) {
   return <Product product={data.product} />
 }

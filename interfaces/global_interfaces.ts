@@ -1,4 +1,4 @@
-export interface Product {
+export interface ProductInfo {
     _id: string;
     name: string;
     image: {}[];
