@@ -1,7 +1,6 @@
 import React, { useState, useEffect, createContext, useContext } from 'react'
 import { ProductInfo } from '../interfaces/global_interfaces'
 
-
 type StateType = {
     qty: number;
     setQty:  React.Dispatch<React.SetStateAction<number>>;
@@ -53,7 +52,7 @@ const CartContext = ({children} : any) => {
         console.log(cartItems)
     }
 
-    const displayCart = () => setShowCart(prev => !prev)
+    const displayCart = () => setShowCart(!showCart)
 
     const removeFromCart = (product: ProductInfo) => {
         if(cartItems.find((item) => item._id === product._id)?.quantity === 1) {
@@ -87,7 +86,7 @@ const CartContext = ({children} : any) => {
         setShowCart,
         displayCart,
         removeFromCart,
-        deleteFromCart
+        deleteFromCart,
     }}>
         {children}
     </Context.Provider>
