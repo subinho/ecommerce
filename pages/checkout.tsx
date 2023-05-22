@@ -1,6 +1,5 @@
 import React, { FormEvent, useState } from 'react'
-import useForm from '@/hooks/useForm'
-import { ShippingForm, CompleteOrder, CartDetails } from '@/components'
+import { ShippingForm, CartDetails } from '@/components'
 import { useRouter } from 'next/router'
 import { useCartContext } from '@/context/CartContext'
 
@@ -45,15 +44,6 @@ const Checkout = () => {
     ))
   }
     const [shippingData, setShippingData] = useState(ShippingDataProps)
-    const { steps, currentStep, step, back, next } = useForm([<ShippingForm key='1' {...shippingData} onUpdate={onUpdate}/>, <CompleteOrder key='2' {...shippingData}/>]) 
-    const onSubmit = (e: FormEvent) => {
-      e.preventDefault()
-      if (currentStep === steps.length - 1) {
-        router.push('/')
-      } else {
-        next()
-      }
-    }
 
     
 
