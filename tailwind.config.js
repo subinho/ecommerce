@@ -5,7 +5,14 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      width: {
+        'input': 'calc(100% / 2 - 20px)'
+      },
+      flex: {
+        'cst': '0 0 auto'
+      }
+    },
   },
   plugins: [],
 }
