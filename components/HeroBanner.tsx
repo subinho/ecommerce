@@ -6,7 +6,7 @@ import Link from 'next/link'
 const HeroBanner = () => {
   return (
     <div>
-        <Link href='#'>
+        <Link href='#products' id='banner'>
             <Image src={image} alt='' height={550} width={1440}/>
         </Link>
     </div>
