@@ -40,5 +40,5 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export default function Page({ data }: { data: { product: ProductInfo} }) {
-  return <Product product={data.product} />
+  return <Product product={data.product || null} />
 }
