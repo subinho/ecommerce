@@ -19,7 +19,7 @@ const query = groq`*[_type == "products" && slug.current == $slug][0]{
 // Prepare Next.js to know which routes already exist
 export const getStaticPaths: GetStaticPaths = async () => {
   const paths = await client.fetch(
-    groq`*[_type == "products" && defined(slug.current)][]{
+    groq`*[_type == "Products" && defined(slug.current)][]{
       "params": { "slug": slug.current }
     }`
   );
