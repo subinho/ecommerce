@@ -12,7 +12,7 @@ const Layout = ({children} : any) => {
           <Navbar />
           <Cart />
         </header>
-        <main className='px-4 max-w-[1440px] mx-auto'>
+        <main className='px-4 max-w-[1440px] mx-auto pt-14'>
             {children}
         </main>
         <footer>
