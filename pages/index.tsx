@@ -5,6 +5,7 @@ import { HeroBanner, Products } from '../components'
 
 const query = groq`*[_type == "products" && defined(slug.current)]{
   _id,
+  category,
   name, 
   image,
   slug,
@@ -21,11 +22,12 @@ export const getStaticProps = async () => {
 };
 
 export default function Home( { data }: { data: SanityDocument[] } ) {
+  // console.log(data)
   return (
     <div className="h-[calc(100vh-56px)] relative">
       <HeroBanner />
       <div>
-        <h3 className="mt-4 font-bold text-xl">Most popular products</h3>
+        <h3 className="my-7 font-bold text-3xl text-center font-mono">Products</h3>
         <Products products={data}/>
       </div>
     </div>
